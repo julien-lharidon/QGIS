@@ -349,7 +349,7 @@ class ANALYSIS_EXPORT QgsGraph
     % End
 #endif
 
-  protected:
+  
 
 #ifndef SIP_RUN
     //! Graph vertices
@@ -358,6 +358,8 @@ class ANALYSIS_EXPORT QgsGraph
     //! Graph edges
     QHash<int, QgsGraphEdge> mGraphEdges;
 #endif
+
+  protected:
 
   private:
 
