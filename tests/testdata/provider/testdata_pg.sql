@@ -534,8 +534,8 @@ CREATE TABLE qgis_test.interval_table
 );
 
 INSERT INTO qgis_test.interval_table VALUES
-(1, "-1 days +32:03:00"),
-(2, "08:03:00"),
+(1, '-1 days +32:03:00'),
+(2, '08:03:00'),
 (3, NULL);
 
 --------------------------------------
