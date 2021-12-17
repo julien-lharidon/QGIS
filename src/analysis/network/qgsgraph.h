@@ -349,7 +349,7 @@ class ANALYSIS_EXPORT QgsGraph
     % End
 #endif
 
-  
+
 
 #ifndef SIP_RUN
     //! Graph vertices
