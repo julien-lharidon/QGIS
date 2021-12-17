@@ -247,17 +247,21 @@ class TestPyQgsPostgresProvider(unittest.TestCase, ProviderTestCase):
         self.assertTrue(vl.isValid())
 
         fields = vl.dataProvider().fields()
-        self.assertEqual(
-            fields.at(fields.indexFromName('fld1')).type(), QVariant.fromValue( QgsInterval() ))
 
-        #To change 
-        values = {feat['id']: feat['fld1'] for feat in vl.getFeatures()}
-        expected = {
-            1: True,
-            2: False,
-            3: NULL
-        }
-        self.assertEqual(values, expected)
+        values = [feat['fld1'] for feat in vl.getFeatures()]
+
+        i = values[0]
+        j = values[1]
+        k = values[2]
+
+        self.assertEqual(i.seconds(), 32162400)
+        self.assertEqual(j.seconds(), 101 * 24 * 60 * 60)
+        self.assertEqual(k.seconds(), 0)
+
+        self.assertTrue(i.isValid())
+        self.assertTrue(j.isValid())
+        #0 interval is not valid.
+        self.assertFalse(k.isValid())
 
     def testByteaType(self):
         vl = QgsVectorLayer('{} table="qgis_test"."byte_a_table" sql='.format(
